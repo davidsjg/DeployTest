@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
+import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
+import { createPost } from "../../actions/posts";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -14,10 +16,24 @@ const Form = () => {
   });
 
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-  const clear = () => {};
+  const clear = () => {
+    // setCurrentId(0);
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createPost(postData));
+  };
 
   return (
     <Paper className={classes.paper}>
@@ -27,7 +43,9 @@ const Form = () => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Creating a Memory</Typography>
+        <Typography variant="h6">
+          {/* {currentId ? `Editing "${post.title}"` : "Creating a Memory"} */}
+        </Typography>
         <TextField
           name="creator"
           variant="outlined"
@@ -51,7 +69,9 @@ const Form = () => {
           variant="outlined"
           label="Message"
           fullWidth
-          value={postData.messsge}
+          multiline
+          rows={4}
+          value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
@@ -59,10 +79,12 @@ const Form = () => {
         <TextField
           name="tags"
           variant="outlined"
-          label="Tags"
+          label="Tags (coma separated)"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
         <div className={classes.fileInput}>
           <FileBase
