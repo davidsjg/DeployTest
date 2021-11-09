@@ -1,0 +1,15 @@
+/* MainForm */
+.mainContain {
+  display: flex;
+  justify-content: center;
+}
+
+.formWrap {
+}
+
+.formLabel1 {
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-content: center;
+}
