@@ -5,11 +5,7 @@ import styled from "styled-components";
 function App() {
   return (
     <Container>
-      <div className="mainContain">
-        <div className="formWrap">
-          <MainForm />
-        </div>
-      </div>
+      <MainForm />
     </Container>
   );
 }
@@ -21,5 +17,4 @@ const Container = styled.div`
   height: 100vh;
   background-size: cover;
   background-image: url("/images/goat.jpg");
-  // background-image: url("/images/model-s.jpg");
 `;

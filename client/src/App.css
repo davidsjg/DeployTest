@@ -4,12 +4,14 @@
 }
 
 /* MainForm.js */
-.mainContain {
-  display: flex;
+.formContain {
+  /* display: flex;
   justify-content: center;
+  flex-direction: column; */
 }
 
 .formWrap {
+  margin: 15%;
 }
 
 .formLabel1 {
