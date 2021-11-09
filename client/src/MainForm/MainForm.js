@@ -15,44 +15,42 @@ function MainForm() {
   }
 
   return (
-    // <div className="formContain">
-
-    <div className="secondContain">
-      <Header>
-        <div className="headerText">Blahgspaht!</div>
-      </Header>
-      <Form className="form1">
-        <InputGroup className="mb-3 inGroup">
-          <InputGroup.Text
-            id="inputGroup-sizing-default"
-            className="inputTitles"
-          >
-            Username:
-          </InputGroup.Text>
-          <br />
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-            ref={user}
-          />
-        </InputGroup>
-        <InputGroup className="mb-3 inGroup">
-          <InputGroup.Text
-            id="inputGroup-sizing-default"
-            className="inputTitles"
-          >
-            Post:
-          </InputGroup.Text>
-          <br />
-          <FormControl as="textarea" rows={3} ref={post} />
-        </InputGroup>
-        <Button variant="secondary" onClick={handleClick}>
-          Secondary
-        </Button>
-      </Form>
-    </div>
-
-    // </div>
+    <>
+      <div className="mainContain">
+        <Header>
+          <div className="headerText">Blahgspaht!</div>
+        </Header>
+        <div className="secondContain">
+          <Form className="form1">
+            <InputGroup className="mb-3 inGroup">
+              <InputGroup.Text
+                id="inputGroup-sizing-default"
+                className="inputTitles"
+              >
+                Username:
+              </InputGroup.Text>
+              <br />
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                ref={user}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3 inGroup">
+              <InputGroup.Text
+                id="inputGroup-sizing-default"
+                className="inputTitles"
+              >
+                Post:
+              </InputGroup.Text>
+              <br />
+              <FormControl as="textarea" rows={3} ref={post} />
+            </InputGroup>
+          </Form>
+          <Button className="submitButton">Submit</Button>
+        </div>
+      </div>
+    </>
   );
 }
 

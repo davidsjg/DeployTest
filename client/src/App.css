@@ -2,13 +2,26 @@
 
 /* MainForm.js */
 
-.secondContain {
+.mainContain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../src/MainForm/goat.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  align-items: center;
+}
+
+.secondContain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -25,7 +38,7 @@
 }
 
 .form1 {
-  padding: 200px;
+  /* padding: 200px; */
 }
 
 .headerText:hover {
@@ -47,11 +60,25 @@
 }
 
 .inputTitles {
-  color: white;
+  color: black;
   width: 100%;
   align-items: center;
 }
 
 .inGroup {
   text-align: center;
+}
+
+.submitButton {
+  background-color: darkblue;
+  color: white;
+  padding: 15px;
+  border: 1px solid whitesmoke;
+  border-radius: 2px;
+  font-size: large;
+  margin: 10px 0;
+}
+
+:hover.submitButton {
+  cursor: pointer;
 }
