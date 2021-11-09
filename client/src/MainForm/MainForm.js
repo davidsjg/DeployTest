@@ -12,11 +12,14 @@ function MainForm() {
     // <div className="formContain">
     <SecondContain>
       <Header>
-        <HeaderText>Blahgspaht!</HeaderText>
+        <div className="headerText">Blahgspaht!</div>
       </Header>
       <Form1>
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="inputGroup-sizing-default">
+        <InputGroup className="mb-3 inGroup">
+          <InputGroup.Text
+            id="inputGroup-sizing-default"
+            className="inputTitles"
+          >
             Default
           </InputGroup.Text>
           <br />
@@ -36,14 +39,6 @@ export default MainForm;
 const Header = styled.div`
   text-align: center;
   padding: 10vh;
-`;
-
-const HeaderText = styled.div`
-  font-size: 5vh;
-  text-align: center;
-  border: 1px solid black;
-  padding: 10px 20px;
-  border-radius: 2px;
 `;
 
 const SecondContain = styled.div`
