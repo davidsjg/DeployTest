@@ -2,34 +2,56 @@ import React, { useRef } from "react";
 import { FormControl } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { InputGroup } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
 function MainForm() {
   const user = useRef();
-  const comment = useRef();
+  const post = useRef();
+
+  function handleClick() {
+    console.log(user.current.value);
+    console.log(post.current.value);
+  }
 
   return (
     // <div className="formContain">
-    <SecondContain>
+
+    <div className="secondContain">
       <Header>
         <div className="headerText">Blahgspaht!</div>
       </Header>
-      <Form1>
+      <Form className="form1">
         <InputGroup className="mb-3 inGroup">
           <InputGroup.Text
             id="inputGroup-sizing-default"
             className="inputTitles"
           >
-            Default
+            Username:
           </InputGroup.Text>
           <br />
           <FormControl
             aria-label="Default"
             aria-describedby="inputGroup-sizing-default"
+            ref={user}
           />
         </InputGroup>
-      </Form1>
-    </SecondContain>
+        <InputGroup className="mb-3 inGroup">
+          <InputGroup.Text
+            id="inputGroup-sizing-default"
+            className="inputTitles"
+          >
+            Post:
+          </InputGroup.Text>
+          <br />
+          <FormControl as="textarea" rows={3} ref={post} />
+        </InputGroup>
+        <Button variant="secondary" onClick={handleClick}>
+          Secondary
+        </Button>
+      </Form>
+    </div>
+
     // </div>
   );
 }
@@ -39,18 +61,6 @@ export default MainForm;
 const Header = styled.div`
   text-align: center;
   padding: 10vh;
-`;
-
-const SecondContain = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 const Form1 = styled.div`
