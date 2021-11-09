@@ -1,4 +1,9 @@
-/* MainForm */
+/* App.js */
+.mainContain {
+  /* background-image: url("/images/goat.png"); */
+}
+
+/* MainForm.js */
 .mainContain {
   display: flex;
   justify-content: center;

@@ -1,14 +1,25 @@
 import "./App.css";
 import MainForm from "./MainForm/MainForm";
+import styled from "styled-components";
 
 function App() {
   return (
-    <div className="mainContain">
-      <div className="formWrap">
-        <MainForm />
+    <Container>
+      <div className="mainContain">
+        <div className="formWrap">
+          <MainForm />
+        </div>
       </div>
-    </div>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("/images/goat.jpg");
+  // background-image: url("/images/model-s.jpg");
+`;
