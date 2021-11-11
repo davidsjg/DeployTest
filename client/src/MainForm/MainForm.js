@@ -1,24 +1,54 @@
 import React, { useRef } from "react";
+// import { useStoreContext } from "../utils/GlobalState";
+import { setPost } from "../actions";
 import { FormControl } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { InputGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
 
 function MainForm() {
-  const user = useRef();
-  const post = useRef();
+  // const [state, dispatch] = useStoreContext();
+  const dispatch = useDispatch();
+
+  const newPost = useSelector((state) => state.post);
+  let user = useRef();
+  let post = useRef();
 
   function handleClick() {
-    console.log(user.current.value);
+    let tempUser = user.current.value;
     console.log(post.current.value);
+
+    // dispatch()
+
+    // dispatch({
+    //   type: setPost,
+    //   user: user.current.value,
+    //   post: post.current.value,
+    // });
+  }
+
+  function clickFunction() {
+    console.log("sup");
   }
 
   return (
     <>
       <div className="mainContain">
         <Header>
-          <div className="headerText">Blahgspaht!</div>
+          <div
+            className="headerText"
+            onClick={() =>
+              dispatch({
+                type: setPost,
+                user: user.current.value,
+                post: post.current.value,
+              })
+            }
+          >
+            Blahgspaht!
+          </div>
         </Header>
         <div className="secondContain">
           <Form className="form1">
@@ -47,7 +77,9 @@ function MainForm() {
               <FormControl as="textarea" rows={3} ref={post} />
             </InputGroup>
           </Form>
-          <Button className="submitButton">Submit</Button>
+          <Button onClick={handleClick} className="submitButton">
+            Submit
+          </Button>
         </div>
       </div>
     </>
