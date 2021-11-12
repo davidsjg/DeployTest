@@ -1,6 +1,7 @@
 export const setPost = () => {
-  console.log("in set post on actions");
   return {
     type: "SET_POST",
   };
 };
+
+// export const SET_POST = "SET_POST";

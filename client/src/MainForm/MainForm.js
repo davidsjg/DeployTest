@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-// import { useStoreContext } from "../utils/GlobalState";
 import { setPost } from "../actions";
 import { FormControl } from "react-bootstrap";
 import { Form } from "react-bootstrap";
@@ -15,16 +14,16 @@ function MainForm() {
   let post = useRef();
 
   function handleClick() {
-    let tempUser = post.current.value;
+    let tempPost = post.current.value;
     console.log(post.current.value);
     console.log();
 
+    // dispatch(setPost());
+
     dispatch({
       type: setPost(),
-      recipe: tempUser,
+      poster: tempPost,
     });
-
-    console.log(newPost);
 
     // dispatch()
 
@@ -36,24 +35,14 @@ function MainForm() {
   }
 
   function clickFunction() {
-    console.log("sup");
+    console.log(newPost);
   }
 
   return (
     <>
       <div className="mainContain">
         <Header>
-          <div
-            className="headerText"
-            onClick={() =>
-              // dispatch({
-              //   type: setPost(),
-              //   user: user.current.value,
-              //   post: post.current.value,
-              // })
-              dispatch(setPost())
-            }
-          >
+          <div className="headerText" onClick={clickFunction}>
             Blahgspaht!
           </div>
         </Header>
@@ -87,6 +76,7 @@ function MainForm() {
           <Button onClick={handleClick} className="submitButton">
             Submit
           </Button>
+          <h4 style={{ color: "white" }}>{newPost[0].poster}</h4>
         </div>
       </div>
     </>
