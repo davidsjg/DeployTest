@@ -1,7 +1,10 @@
 const postReducer = (state = 0, action) => {
   switch (action.type) {
     case "SET_POST":
-      return state + 1;
+      return {
+        recipe: action.recipe,
+      };
+
       break;
 
     default:

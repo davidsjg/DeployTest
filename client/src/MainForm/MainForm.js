@@ -9,17 +9,22 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 function MainForm() {
-  // const [state, dispatch] = useStoreContext();
   const dispatch = useDispatch();
-
   const newPost = useSelector((state) => state.poster);
   let user = useRef();
   let post = useRef();
 
   function handleClick() {
-    let tempUser = user.current.value;
+    let tempUser = post.current.value;
     console.log(post.current.value);
     console.log();
+
+    dispatch({
+      type: setPost(),
+      recipe: tempUser,
+    });
+
+    console.log(newPost);
 
     // dispatch()
 
