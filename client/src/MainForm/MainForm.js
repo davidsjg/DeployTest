@@ -12,13 +12,14 @@ function MainForm() {
   // const [state, dispatch] = useStoreContext();
   const dispatch = useDispatch();
 
-  const newPost = useSelector((state) => state.post);
+  const newPost = useSelector((state) => state.poster);
   let user = useRef();
   let post = useRef();
 
   function handleClick() {
     let tempUser = user.current.value;
     console.log(post.current.value);
+    console.log();
 
     // dispatch()
 
@@ -40,11 +41,12 @@ function MainForm() {
           <div
             className="headerText"
             onClick={() =>
-              dispatch({
-                type: setPost,
-                user: user.current.value,
-                post: post.current.value,
-              })
+              // dispatch({
+              //   type: setPost(),
+              //   user: user.current.value,
+              //   post: post.current.value,
+              // })
+              dispatch(setPost())
             }
           >
             Blahgspaht!
